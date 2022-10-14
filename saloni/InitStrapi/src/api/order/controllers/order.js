@@ -28,6 +28,7 @@ module.exports = createCoreController('api::order.order',
                 owner : user.id
             }
         });
+        strapi.service("api::order.order").sendEmail(order.id, ctx.state.user);
         return { order };
     }
 })
